@@ -4,6 +4,8 @@
 
 const char *src = "abc\0";
 
+// Returns ERANGE if dst plus the null byte cannot hold the value.
+// Adds a null byte even if src lacks one.
 int get(char *dst, const size_t len) {
     if (strlen(src) + 1 > len) {
         return ERANGE;
